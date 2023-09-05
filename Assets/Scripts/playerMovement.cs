@@ -18,5 +18,10 @@ public class playerMovement : MonoBehaviour
         float rotationX = Input.GetAxis("Horizontal") * sidewaysForce * Time.deltaTime;
        
         transform.Translate(rotationX, 0, 0,Space.World);
+
+        if(rb.position.y < -1)
+        {
+            FindObjectOfType<gameManager>().EndGame();
+        }
     }
 }
