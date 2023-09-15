@@ -18,7 +18,7 @@ public class playerMovement : MonoBehaviour
 
          rotationX = Input.GetAxis("Horizontal");
        
-        transform.Translate(Vector3.right * rotationX * sidewaysForce * Time.deltaTime);
+         transform.Translate(Vector3.right * rotationX * sidewaysForce * Time.deltaTime);
 
         if(rb.position.y < -1)
         {
