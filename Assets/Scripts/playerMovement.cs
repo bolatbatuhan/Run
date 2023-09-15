@@ -9,15 +9,16 @@ public class playerMovement : MonoBehaviour
     public float forwardForce = 2000f;
     public float sidewaysForce = 500f;
     
+    private float rotationX;
 
     
     void FixedUpdate()
     {
         rb.AddForce(0, 0, forwardForce*Time.deltaTime);
 
-        float rotationX = Input.GetAxis("Horizontal") * sidewaysForce * Time.deltaTime;
+         rotationX = Input.GetAxis("Horizontal");
        
-        transform.Translate(rotationX, 0, 0,Space.World);
+        transform.Translate(Vector3.right * rotationX * sidewaysForce * Time.deltaTime);
 
         if(rb.position.y < -1)
         {
